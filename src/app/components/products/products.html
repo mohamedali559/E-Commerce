@@ -6,14 +6,22 @@
     </select>
 </div>
 
-<div class="row row-cols-1 row-cols-md-6 g-4">
-    <div class="col" *ngFor="let Product of ProductsList">
-        <div>
-            <img [src]="Product.imageUrl" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{Product.name}} ---- {{Product.price}}$</h5>
-                <p class="card-text">{{Product.description}}</p>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <ng-container *ngFor="let Product of ProductsList">
+        <div class="col" *ngIf="Product.Quantity != 0" [class.d-none]="selectedCategoryId !=Product.categoryId">
+            <div class="card">
+                <img [src]="Product.imageUrl" class="card-img-top" alt="...">
+                <div class="card-body" [ngStyle]="Product.Quantity==1?{'background-color':'yellow'}:{}">
+                    <h5 class="card-title">{{Product.name}} ---- {{Product.price}}$</h5>
+                    <p class="card-text" [ngClass]="Product.Quantity>1?'':'text-danger'">{{Product.description}}</p>
+                    <p class="card-text" *ngIf="Product.Quantity>1;else lastitem ">
+                        {{Product.Quantity}}</p>
+                    <ng-template #lastitem>
+                        <p class="card-text text-danger">Last Item!</p>
+                    </ng-template>
+                    <button class="btn btn-success" (click)="Productsold(Product)">Buy</button>
+                </div>
             </div>
         </div>
-    </div>
+    </ng-container>
 </div>
