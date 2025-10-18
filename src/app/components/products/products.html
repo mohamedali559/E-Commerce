@@ -1,1 +1,19 @@
-<p>products works!</p>
+<h3 class="text-center mb-4">Selected Category ID : {{selectedCategoryId}}</h3>
+
+<div class="mb-3">
+    <select [(ngModel)]="selectedCategoryId" class="form-select" aria-label="Default select example">
+        <option *ngFor="let cat of CategoryList" [value]="cat.id">{{cat.name}}</option>
+    </select>
+</div>
+
+<div class="row row-cols-1 row-cols-md-6 g-4">
+    <div class="col" *ngFor="let Product of ProductsList">
+        <div>
+            <img [src]="Product.imageUrl" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{Product.name}} ---- {{Product.price}}$</h5>
+                <p class="card-text">{{Product.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
