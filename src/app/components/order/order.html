@@ -1,6 +1,7 @@
 <div class="mb-3">
     <select [(ngModel)]="selectedCategoryId" class="form-select" aria-label="Default select example">
-        <option value="0" disabled selected>select category</option>
+        <!-- <option value="-1" disabled selected>select category</option> -->
+        <option value="0">Show All</option>
         @for (cat of CategoryList; track cat.id) {
         <option [value]="cat.id">{{cat.name}}</option>
         }

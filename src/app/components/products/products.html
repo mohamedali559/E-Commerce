@@ -5,9 +5,9 @@
     @for (Product of FilteredProducts; track Product.id) {
     <!-- if to check product quantity equals zero or not -->
     @if (Product.Quantity != 0) {
-    <div class="col" [class.d-none]="ReceivedCatigoryId != Product.categoryId">
+    <div class="col">
         <!-- Product Card -->
-        <div class="card">
+        <div class=" card">
             <img [src]="Product.imageUrl" class="card-img-top" alt="...">
             <div class="card-body" [ngStyle]="Product.Quantity==1?{'background-color':'yellow'}:{}">
                 <h5 class="card-title">{{Product.name}} ---- {{Product.price}}$</h5>

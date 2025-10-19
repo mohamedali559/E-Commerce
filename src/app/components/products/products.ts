@@ -42,7 +42,12 @@ export class Products implements OnChanges {
     }
   }
   filterProducts(){
-    this.FilteredProducts = this.ProductsList.filter(p=>p.categoryId === this.ReceivedCatigoryId);
+    if(this.ReceivedCatigoryId == 0){
+      this.FilteredProducts = this.ProductsList;
+    }
+    else{
+      this.FilteredProducts = this.ProductsList.filter(p=>p.categoryId == this.ReceivedCatigoryId);
+    }
   }
   
 
