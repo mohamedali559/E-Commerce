@@ -1,12 +1,11 @@
-<h3 class="text-center mb-4">Selected Category ID : {{selectedCategoryId}}</h3>
-
+<h3 class="text-center mb-4">Selected Category ID : {{ReceivedCatigoryId}}</h3>
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
     <!-- for loop -->
-    @for (Product of ProductsList; track Product.id) {
+    @for (Product of FilteredProducts; track Product.id) {
     <!-- if to check product quantity equals zero or not -->
     @if (Product.Quantity != 0) {
-    <div class="col" [class.d-none]="selectedCategoryId !=Product.categoryId">
+    <div class="col" [class.d-none]="ReceivedCatigoryId != Product.categoryId">
         <!-- Product Card -->
         <div class="card">
             <img [src]="Product.imageUrl" class="card-img-top" alt="...">

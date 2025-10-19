@@ -12,7 +12,7 @@ import { Products } from "../products/products";
 export class Order {
 
     CategoryList: ICategory[];
-    selectedCategoryId: number | null = 0;
+    selectedCategoryId: number= 0;
 
     constructor() {
      this.CategoryList = [
