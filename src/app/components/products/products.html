@@ -1,28 +1,30 @@
 <h3 class="text-center mb-4">Selected Category ID : {{selectedCategoryId}}</h3>
 
-<div class="mb-3">
-    <select [(ngModel)]="selectedCategoryId" class="form-select" aria-label="Default select example">
-        <option value="0" disabled selected>select category</option>
-        <option *ngFor="let cat of CategoryList" [value]="cat.id">{{cat.name}}</option>
-    </select>
-</div>
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
-    <ng-container *ngFor="let Product of ProductsList">
-        <div class="col" *ngIf="Product.Quantity != 0" [class.d-none]="selectedCategoryId !=Product.categoryId">
-            <div class="card">
-                <img [src]="Product.imageUrl" class="card-img-top" alt="...">
-                <div class="card-body" [ngStyle]="Product.Quantity==1?{'background-color':'yellow'}:{}">
-                    <h5 class="card-title">{{Product.name}} ---- {{Product.price}}$</h5>
-                    <p class="card-text" [ngClass]="Product.Quantity>1?'':'text-danger'">{{Product.description}}</p>
-                    <p class="card-text" *ngIf="Product.Quantity>1;else lastitem ">
-                        {{Product.Quantity}}</p>
-                    <ng-template #lastitem>
-                        <p class="card-text text-danger">Last Item!</p>
-                    </ng-template>
-                    <button class="btn btn-success" (click)="Productsold(Product)">Buy</button>
-                </div>
+    <!-- for loop -->
+    @for (Product of ProductsList; track Product.id) {
+    <!-- if to check product quantity equals zero or not -->
+    @if (Product.Quantity != 0) {
+    <div class="col" [class.d-none]="selectedCategoryId !=Product.categoryId">
+        <!-- Product Card -->
+        <div class="card">
+            <img [src]="Product.imageUrl" class="card-img-top" alt="...">
+            <div class="card-body" [ngStyle]="Product.Quantity==1?{'background-color':'yellow'}:{}">
+                <h5 class="card-title">{{Product.name}} ---- {{Product.price}}$</h5>
+                <p class="card-text" [ngClass]="Product.Quantity>1?'':'text-danger'">{{Product.description}}</p>
+                <!-- Quantity Check -->
+                @if (Product.Quantity>1) {
+                <p class="card-text">{{Product.Quantity}}</p>
+                }
+                @else {
+                <p class="card-text text-danger">Last Item!</p>
+                }
+                <!-- Buy Button -->
+                <button class="btn btn-success" (click)="Productsold(Product)">Buy</button>
             </div>
         </div>
-    </ng-container>
+    </div>
+    }
+    }
 </div>

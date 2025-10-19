@@ -14,7 +14,6 @@ import { ɵEmptyOutletComponent } from "@angular/router";
 export class Products {
   
   ProductsList: IProduct[];
-  CategoryList: ICategory[];
   selectedCategoryId: number | null = 0;
   ProductQuantity: string ="";
 
@@ -26,12 +25,6 @@ export class Products {
       { id: 4, name: 'Smartwatch', description: 'Feature-rich smartwatch', price: 250, categoryId: 2, imageUrl: 'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU', Quantity: 0 },
       { id: 5, name: 'Tablet', description: 'Lightweight tablet', price: 600, categoryId: 3, imageUrl: 'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU', Quantity: 10 },
       { id: 6, name: 'Ipad', description: 'Lightweight Ipad', price: 6000, categoryId: 3, imageUrl: 'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU', Quantity: 1 }
-    ];
-
-    this.CategoryList = [
-      { id: 1, name: 'Electronics' },
-      { id: 2, name: 'Accessories' },
-      { id: 3, name: 'Gadgets' }
     ];
   }
 
