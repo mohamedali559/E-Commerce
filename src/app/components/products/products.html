@@ -7,7 +7,7 @@
     @if (Product.Quantity != 0) {
     <div class="col">
         <!-- Product Card -->
-        <div class=" card">
+        <div class="card" appProdCard>
             <img [src]="Product.imageUrl" class="card-img-top" alt="...">
             <div class="card-body" [ngStyle]="Product.Quantity==1?{'background-color':'yellow'}:{}">
                 <h5 class="card-title">{{Product.name}} ---- {{Product.price}}$</h5>

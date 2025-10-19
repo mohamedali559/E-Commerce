@@ -3,12 +3,13 @@ import { IProduct } from '../../models/iproduct';
 import { ICategory } from '../../models/icategory';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ProdCard } from '../../directives/prod-card';
 // removed unused router import
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ProdCard],
   templateUrl: './products.html',
   styleUrls: ['./products.css']
 })
