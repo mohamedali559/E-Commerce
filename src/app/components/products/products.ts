@@ -7,7 +7,7 @@ import { ɵEmptyOutletComponent } from "@angular/router";
 
 @Component({
   selector: 'app-products',
-  imports: [CommonModule, FormsModule, ɵEmptyOutletComponent],
+  imports: [CommonModule, FormsModule],
   templateUrl: './products.html',
   styleUrls: ['./products.css']
 })
