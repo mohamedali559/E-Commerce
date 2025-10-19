@@ -8,4 +8,8 @@
     </select>
 </div>
 
+<div m-4 class="text-center">
+    <h2>{{SSN | ssn2date | date: 'shortDate'}}</h2>
+</div>
+
 <app-products [ReceivedCatigoryId]="selectedCategoryId"></app-products>

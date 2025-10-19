@@ -2,17 +2,20 @@ import { Component } from '@angular/core';
 import { ICategory } from '../../models/icategory';
 import { FormsModule, NgModel } from '@angular/forms';
 import { Products } from "../products/products";
+import { Ssn2datePipe } from '../../pipes/ssn2date-pipe';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-order',
-  imports: [FormsModule, Products],
+  imports: [CommonModule, FormsModule, Products, Ssn2datePipe],
   templateUrl: './order.html',
-  styleUrl: './order.css'
+  styleUrls: ['./order.css']
 })
 export class Order {
 
     CategoryList: ICategory[];
     selectedCategoryId: number= 0;
+    SSN:number=30301141202434;
 
     constructor() {
      this.CategoryList = [
