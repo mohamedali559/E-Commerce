@@ -2,6 +2,7 @@
 
 <div class="mb-3">
     <select [(ngModel)]="selectedCategoryId" class="form-select" aria-label="Default select example">
+        <option value="0" disabled selected>select category</option>
         <option *ngFor="let cat of CategoryList" [value]="cat.id">{{cat.name}}</option>
     </select>
 </div>
