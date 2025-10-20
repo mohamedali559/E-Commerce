@@ -9,7 +9,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-order',
   imports: [CommonModule, FormsModule, Products, Ssn2datePipe],
   templateUrl: './order.html',
-  styleUrls: ['./order.css']
+  styleUrls: ['./order.css'],
+  standalone: true
 })
 export class Order {
 

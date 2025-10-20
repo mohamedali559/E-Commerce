@@ -5,9 +5,10 @@ import { Products } from "./components/products/products";
 import { Footer } from "./components/footer/footer";
 import { Order } from "./components/order/order";
 
+
 @Component({
   selector: 'app-root',
-  imports: [Header, Footer, Order],
+  imports: [Header, Footer, Order, Products, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
