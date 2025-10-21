@@ -6,12 +6,14 @@ import { FormsModule } from '@angular/forms';
 import { ProdCard } from '../../directives/prod-card';
 import { StaticProducts } from '../../services/static-products';
 import { concatWith } from 'rxjs';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router } from '@angular/router';
 // removed unused router import
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule, FormsModule, ProdCard],
+  imports: [CommonModule, FormsModule, ProdCard, RouterLink, RouterOutlet],
   templateUrl: './products.html',
   styleUrls: ['./products.css']
 })
@@ -23,7 +25,9 @@ export class Products implements OnChanges {
   ProductQuantity: string ="";
   @Input() ReceivedCatigoryId: number= 0;
 
-  constructor(private _staticProducts: StaticProducts) {
+  constructor(private _staticProducts: StaticProducts,
+    private _router: Router
+  ) {
     this.ProductsList = this._staticProducts.getAllProducts();
     this.FilteredProducts = this.ProductsList;
   }
@@ -37,5 +41,9 @@ export class Products implements OnChanges {
     if (IProduct.Quantity > 0) {
       IProduct.Quantity--;
     }
+  }
+
+  NavigateToDetails(prodId: number){
+    this._router.navigateByUrl(`/Products/Details/${prodId}`);
   }
 }
