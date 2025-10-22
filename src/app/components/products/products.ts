@@ -33,7 +33,6 @@ export class Products implements OnChanges, OnInit {
   ngOnInit() {
     this._apiProducts.getAllProducts().subscribe({
       next: (products) => {
-        console.log(products);
         this.ProductsList = products;
         this.FilteredProducts = products;
       },

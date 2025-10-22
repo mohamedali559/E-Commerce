@@ -17,8 +17,13 @@
         <input type="file" class="form-control">
     </div>
     <div class="mb-3">
-        <label class="form-label">Category</label>
-        <input type="text" class="form-control">
+        <label for="">Category List</label>
+        <select class="form-select" aria-label="Default select example">
+            <option selected disabled>select Category</option>
+            @for (category of CategoriesList; track $index) {
+            <option [value]="category.id">{{category.name}}</option>
+            }
+        </select>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
