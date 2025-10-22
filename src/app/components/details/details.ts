@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IProduct } from '../../models/iproduct';
 import { StaticProducts } from '../../services/static-products';
+import { ApiProducts } from '../../services/api-products';
 
 
 
@@ -13,10 +14,10 @@ import { StaticProducts } from '../../services/static-products';
 })
 export class Details implements OnInit {
 
-  Prouduct:IProduct | null = null;
+  Prouduct: IProduct | null = null;
 
-  constructor(private _activatedRoute: ActivatedRoute , private _staticProducts: StaticProducts) {
-    
+  constructor(private _activatedRoute: ActivatedRoute, private _apiProducts: ApiProducts) {
+
   }
 
   ngOnInit() {
@@ -25,7 +26,14 @@ export class Details implements OnInit {
       const productId = params.get('id');
 
       if (productId) {
-        this.Prouduct = this._staticProducts.getProductById((Number(productId)));
+        this._apiProducts.getProductById((Number(productId))).subscribe({
+          next: (product) => {
+            this.Prouduct = product;
+          },
+          error: (err) => {
+            console.error('Error fetching product details:', err);
+          }
+        });
       }
     });
   }
